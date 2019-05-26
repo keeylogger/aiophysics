@@ -121,7 +121,7 @@
 	outline: #000 solid 1px;
 	outline-offset: 0px;
 	cursor: pointer;
-	transition: all 0.2s 0.1s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 .c_sClass:hover {
@@ -136,7 +136,7 @@
 	font-size: 25px;
 	letter-spacing: 24px;
 	line-height: 40px;
-	transition: all 0.2s 0.1s ease-in-out;
+	transition: all 0.2s ease-in-out;
 	will-change: letter-spacing, font-size;
 }
 
@@ -157,7 +157,7 @@
 	top: 0;
 	left: 50%;
 	transform: translateX(-50%);
-	transition: all 0.2s 0.1s ease-in-out;
+	transition: all 0.2s ease-in-out;
 	will-change: font-size, letter-spacing;
 }
 
