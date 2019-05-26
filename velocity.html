@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand"> 
+	<link rel="stylesheet" href="_css/main_s.css">
+	<script type="text/javascript" src="_js/s_scroll.js"></script>
+	<script type="text/javascript" src="_js/calc_val.js"></script>
+<body>
+<script type="text/javascript" src="_js/sticky.js"></script>
+
+<div class="w3-display-container w3-content w3-wide" style="max-width:100%;height:400px;" id="home">
+	<img class="w3-image" src="_img/bg.jpg" alt="AIO Physics" style="width:100%;max-height:100%;">
+	<div class="w3-display-middle w3-margin-top w3-center">
+		<a href="aiop.html">
+			<div class="w3-display-middle w3-margin-top w3-center" style="background-color:#fff;width:400px;height:87px;box-shadow: inset 0px 0px 30px #000;">
+				<h1 class="w3-xxlarge w3-text-white w3-margin-top w3-center">
+					<span class="w3-padding w3-black w3-opacity-min"><b>AIO</b></span>
+					<span class="w3-hide-small w3-text-black">Physics</span>
+				</h1>
+			</div>
+		</a>
+	</div>
+</div>
+
+<div id="navbar" class="w3-bar w3-black" style="background:#000;z-index:1;">
+	<a href="aiop.html" id="btn_menu" class="w3-button w3-bar-item w3-left w3-padding-16">MAIN MENU</a>
+	<a href="#contact" id="btn_menu" class="w3-button w3-bar-item w3-right w3-padding-16">CONTACT</a>
+	<a href="#about" id="btn_menu" class="w3-button w3-bar-item w3-right w3-padding-16">ABOUT</a>
+	<a href="#subjects" id="btn_menu" class="w3-button w3-bar-item w3-right w3-padding-16">CONTENT</a>
+	<a href="#home" id="btn_menu" class="w3-button w3-bar-item w3-right w3-padding-16">HOME</a>
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+<!-- Page content -->
+<div class="content" class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="subjects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Make your calculation :</h3>
+  </div>
+
+	<div class="w3-display-container">
+	
+		<!-- BEGIN Mechanics Box -->
+		<div class="w3-content m6 w3-center" style="margin-bottom:64px;width:40%;">
+			<div class="w3-display-container">
+				<div class="w3-display-top w3-black w3-padding-large">Velocity Calculator</div>
+				<div class="w3-center w3-padding-large w3-margin"> <!-- Inside calculator div -->
+				
+					<span class="w3-left w3-large w3-padding-large">
+						End position : 
+					</span>
+					<input name="p_f" id="p_f" class="w3-input w3-border w3-bottombar" type="text" required placeholder="Just enter numbers"> <!-- Input value "End position" -->
+				
+					<span class="w3-left w3-large w3-padding-large">
+						Start position : 
+					</span>
+					<input name="p_i" id="p_i" class="w3-input w3-border w3-bottombar" type="text" required placeholder="Just enter numbers"> <!-- Input value "Start position" -->
+					
+					<hr style="height:1px;border:none;color:#999;background-color:#999;" /> <!-- LINE BREAK -->
+					
+					<span class="w3-left w3-large w3-padding-large">
+						End time : 
+					</span>
+					<input name="t_f" id="t_f" class="w3-input w3-border w3-bottombar" type="text" required placeholder="Just enter numbers"> <!-- Input value "End time" -->
+				
+					<span class="w3-left w3-large w3-padding-large">
+						Start time : 
+					</span>
+					<input name="t_i" id="t_i" class="w3-input w3-border w3-bottombar" type="text" required placeholder="Just enter numbers"> <!-- Input value "Start time" -->
+					
+					<br><br>
+					
+					<button id="button" class="w3-button w3-black" onClick="calc_validate()"><a href="#result" style="text-decoration:none;">Submit</a></button>
+					
+					<!-- BEGIN HIDDEN CONTENT -->
+					
+					<div id="result" class="w3-display-container w3-padding-large w3-margin" style="visibility: hidden;display: none;"> 
+					
+						<hr style="height:1px;border:none;color:#999;background-color:#999;" /> <!-- LINE BREAK -->
+						<br>
+						
+						<label id="txt_res" class="w3-left">YOUR RESULT IS : <span id="res_km"></span> Km/h</label>
+						
+						<br><br>
+						
+						<label id="txt_res2" class="w3-left">OR : <span id="res_ms"></span> m/s</label>
+						
+						<br><br>
+						
+						<!-- BEGIN explanation div -->
+		
+						<div name="description" id="desc">
+							<h2>EXPLANATION</h2>
+							<br><br>
+							V<sub>avg</sub> = &Delta;s &div; &Delta;t
+							<br><br>
+							Where : <br><br>
+							&Delta;s = End Position &minus; Start Position
+							<br><br>
+							&Delta;t = End Time &minus; Start Time
+							<br><br>
+							<br>
+							<b class="w3-large" style="text-decoration:underline;">YOUR CALCULATION :</b>
+							<br><br>
+														
+							<div id="explic" style="display:none;">
+								&Delta;s = <span id="s1"></span> &minus; <span id="s2"></span>
+								<br>
+								&Delta;s = <span id="s1s2"></span>
+								<hr style="height:1px;border:none;color:#999;background-color:#999;" /> <!-- LINE BREAK -->
+								&Delta;t = <span id="s3"></span> &minus; <span id="s4"></span>
+								<br>
+								&Delta;t = <span id="s3s4"></span>
+								<hr style="height:1px;border:none;color:#999;background-color:#999;" /> <!-- LINE BREAK -->
+								V<sub>avg</sub> = <span id="rs"></span> &div; <span id="rt"></span>
+								<br><br>
+								V<sub>avg</sub> = <span id="resultkm"></span> Km/h
+								<br><br>
+								Or : <span id="altkm"></span> &div; 3,6 = <span id="resultms"></span> m/s
+							</div>						
+						</div>
+						
+						<!-- END explanation div -->
+					</div>
+					<!-- END HIDDEN CONTENT -->
+					
+					<!-- SCROLL TO HIDDEN DIV AFTER SUBMITED VALUES -->					
+					<script>
+						$("#button").click(function() {
+							$('html, body').stop().animate({
+								scrollTop: $("#result").offset().top
+							}, 1000);
+						});
+					</script>
+				</div>
+				<div class="w3-display-bottom w3-black w3-padding-large">Your results will be given in Km/h and in m/s, so don't worry</div>
+			</div>
+		</div>
+		<!-- END Mechanics Box -->
+		
+		
+		
+	</div>
+	
+</div><!-- End of page content -->
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>Powered by Matheus Simões</p>
+</footer>
+</body>
+</html>
